@@ -143,6 +143,7 @@ pipeline{
         success{
             script{
                 println("success")
+                // if判断主要解决手动触发时获取不到projectId和commitSha，需要过滤
                 if ("${runOpts}" == "GitlabPush"){
                     gitlab.ChangeCommitStatus(projectId,commitSha,"success")
                 }
