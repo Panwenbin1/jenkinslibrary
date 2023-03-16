@@ -23,7 +23,7 @@ String srcUrl = "${env.srcUrl}"
 String branchName = "${env.branchName}"
 String artifactUrl = "${env.artifactUrl}"
 
-
+// 手动触发的状态下，pipeline无法获取gitlab相关的信息，所以需要判断
 if ("${runOpts}" == "GitlabPush"){
     branchName = branch - "refs/heads/"
     
